@@ -17,6 +17,7 @@ public class ButtonComboBoxMenu extends JPanel {
     }
 
     private void createComponents() {
+        this.setLayout(new GridLayout(1, 2));
         JLabel accountLabel = new JLabel("Select an account");
         accountLabel.setFont(new Font("Verdana", Font.BOLD, 12));
         add(accountLabel);
