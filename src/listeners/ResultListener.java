@@ -25,10 +25,9 @@ public class ResultListener implements ActionListener {
         String sql = "SELECT AVG(PercentageWatched) AS [%_Watched], Content.ContentNr, MAX(Content.Title) AS Title\n";
         sql += "FROM Stream\n";
         sql += "RIGHT JOIN Content ON Content.ContentNr = Stream.ContentNr\n";
-        sql += "RIGHT JOIN Subscription ON Subscription.Email = Stream.SubscriptionEmail\n";
+        sql += "WHERE Stream.SubscriptionEmail = (SELECT Email FROM Subscription WHERE Email = '" + selectedAccount + "')\n";
         sql += "GROUP BY Content.ContentNr\n";
-        sql += "HAVING MAX(Content.Series) = '" + selectedSeries + "'\n";
-        sql += "AND MAX(Subscription.Email) = '" + selectedAccount + "'";
+        sql += "HAVING MAX(Content.Series) = '" + selectedSeries + "'";
 
         ArrayList<HashMap<String, Object>> resultList = database.getResultsOfQuery(sql);
 

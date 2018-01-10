@@ -9,9 +9,15 @@ public class TabbedFrame extends JFrame {
 
     // Constructor
     public TabbedFrame() {
+        this.getContentPane().setLayout(new BorderLayout());
         this.tabContainer = new JTabbedPane(); // Create JTabbedPane
         this.tabContainer.setFont(new Font("Verdana", Font.BOLD, 16)); // Set font for JTabbedPane
-        getContentPane().add(tabContainer); // Add the JTabbedPane to the JFrame's contentPane (which is a JPanel)
+        getContentPane().add(tabContainer, BorderLayout.CENTER); // Add the JTabbedPane to the JFrame's contentPane (which is a JPanel)
+        createFooter();
+    }
+
+    private void createFooter() {
+        this.getContentPane().add(new Footer(), BorderLayout.SOUTH);
     }
 
     // Method addNewOne, adds a new JPanel (together with its title) to the JTabbedPane

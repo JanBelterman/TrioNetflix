@@ -252,8 +252,8 @@ public class Database {
         // The string key looks like this: key:key:key etc.. | split the keys into an string array
         String[] primaryKeyValues = originalKey.split(":");
         // Create statement
-        String sql = "UPDATE\n";
-        sql += "SET";
+        String sql = "UPDATE " + tableName + "\n";
+        sql += "SET ";
         int i = 0; // Create counter variable
         for (String columnName : getcolumnNamesForTable(tableName)) { // Loop trough the tables columns
             sql += columnName + " = '" + newValues.get(i).toString() + "'"; // set new value to current column name
@@ -350,6 +350,9 @@ public class Database {
         Statement statement = null;
         ResultSet resultSet = null;
 
+        // Print the sql code used
+        System.out.println(sql + "\n");
+
         try {
             connection = DriverManager.getConnection(connectionUrl);
             statement = connection.createStatement();
@@ -366,8 +369,6 @@ public class Database {
                 }
                 resultList.add(row);
             }
-            // Print the sql code used
-            System.out.println(sql + "\n");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
