@@ -1,7 +1,9 @@
 package tabbedPanels.panels.tabs.overviewTabs;
 
+import database.Database;
 import listeners.OverviewComboBoxListener;
 import tabbedPanels.panels.OverviewPanel;
+import tabbedPanels.panels.menus.OverviewMenu;
 import tables.TableCreator;
 
 import javax.swing.*;
@@ -9,10 +11,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class OTPercentageWatchedForSeriesAndAccount extends JPanel implements OverviewTab {
+public class OTPercentageWatchedForSeriesAndAccount extends JPanel {
     private OverviewPanel overviewPanel;
-    private JComboBox comboBoxSeries;
-    private JComboBox comboBoxAccount;
     private JLabel errorLabel;
 
     private TableCreator tableCreator;
@@ -26,53 +26,16 @@ public class OTPercentageWatchedForSeriesAndAccount extends JPanel implements Ov
     }
 
     private void createComponents() {
-        setLayout (new BoxLayout(this, BoxLayout.Y_AXIS)); // Setting the layout of this JPanel
+        setLayout (new BorderLayout()); // Setting the layout of this JPanel
 
-        JLabel seriesLabel = new JLabel("Select a series");
-        seriesLabel.setFont(new Font("Verdana", Font.BOLD, 12));
-        add(seriesLabel);
-
-        // No need for an actionListener, one button will get both comboBox values and use them for the query
-        comboBoxSeries = new JComboBox();
-        comboBoxSeries.setFont(new Font("Verdana", Font.PLAIN, 12));
-        updateComboBoxSeries();
-        add(comboBoxSeries);
-
-        JLabel accountLabel = new JLabel("Select an account");
-        accountLabel.setFont(new Font("Verdana", Font.BOLD, 12));
-        add(accountLabel);
-
-        comboBoxAccount = new JComboBox();
-        comboBoxAccount.setFont(new Font("Verdana", Font.PLAIN, 12));
-        updateComboBoxAccount();
-        add(comboBoxAccount);
-
-        // Add a button which on press gets the combobox values and creates a query with them
-
-        JLabel label1 = new JLabel("Average percentage watched for each episode");
-        label1.setFont(new Font("Verdana", Font.PLAIN, 12));
-        add(label1);
+        add(new OverviewMenu(this), BorderLayout.NORTH);
 
         errorLabel = new JLabel("");
         errorLabel.setFont(new Font("Verdana", Font.PLAIN, 16));
         errorLabel.setForeground(Color.red);
-        add(errorLabel);
+        add(errorLabel, BorderLayout.SOUTH);
 
         updateTable(new ArrayList<HashMap<String, Object>>());
-    }
-
-    public void updateComboBoxSeries() {
-        for (Object o : this.overviewPanel.getDatabase().getUniqueRecordsOfTable("Series")) {
-            comboBoxSeries.addItem(o.toString());
-        }
-        updatePanel();
-    }
-
-    public void updateComboBoxAccount() {
-        for (Object o : this.overviewPanel.getDatabase().getUniqueRecordsOfTable("Subscription")) {
-            comboBoxAccount.addItem(o.toString());
-        }
-        updatePanel();
     }
 
 
@@ -80,32 +43,36 @@ public class OTPercentageWatchedForSeriesAndAccount extends JPanel implements Ov
         if (scrollPane != null) { remove(scrollPane); }
 
         ArrayList<String> columnNames = new ArrayList<>();
-        columnNames.add("");
-        columnNames.add("");
-        columnNames.add("");
+        columnNames.add("% watched");
+        columnNames.add("ContentNr");
+        columnNames.add("Title");
 
         // Transform ArrayList<HashMap<String, Object>> to ArrayList<String>
         ArrayList<String> results = new ArrayList<>();
         for (HashMap<String, Object> result : resultList) {
-            results.add(result.get("").toString());
-            results.add(result.get("").toString());
-            results.add(result.get("").toString());
+            results.add(result.get("%_Watched").toString());
+            results.add(result.get("ContentNr").toString());
+            results.add(result.get("Title").toString());
         }
 
         table = tableCreator.createTable(results, columnNames);
         scrollPane = new JScrollPane(table);
-        add(scrollPane);
+        add(scrollPane, BorderLayout.CENTER);
         updatePanel();
-    }
-
-    @Override
-    public void handleActionEvent() {
-
     }
 
     private void updatePanel() {
         revalidate();
         repaint();
+    }
+
+    public Database getDatabase() {
+        return this.overviewPanel.getDatabase();
+    }
+
+    public void putError(String errorText) {
+        this.errorLabel.setText(errorText);
+        updatePanel();
     }
 
 }
