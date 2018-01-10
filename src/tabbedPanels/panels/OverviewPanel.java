@@ -1,6 +1,7 @@
 package tabbedPanels.panels;
 
 import database.Database;
+import tabbedPanels.panels.tabs.overviewTabs.OTMovieWatchedByAccount;
 import tabbedPanels.panels.tabs.overviewTabs.OTPercentageWatchedForSeries;
 import tabbedPanels.panels.tabs.overviewTabs.OTPercentageWatchedForSeriesAndAccount;
 
@@ -21,8 +22,9 @@ public class OverviewPanel extends JPanel {
         tabbedPane.setFont(new Font("Verdana", Font.BOLD, 15));
         tabbedPane.setTabPlacement(JTabbedPane.LEFT);
 
-        tabbedPane.addTab("PercentWatchedForSeries", new OTPercentageWatchedForSeries(this));
-        tabbedPane.addTab("PercentageWatchedForSeriesForAccount", new OTPercentageWatchedForSeriesAndAccount(this));
+        tabbedPane.addTab("Percent watched for series", new OTPercentageWatchedForSeries(this));
+        tabbedPane.addTab("Percentage watched for series for account", new OTPercentageWatchedForSeriesAndAccount(this));
+        tabbedPane.addTab("Movies watched by account", new OTMovieWatchedByAccount(this));
 
         add(tabbedPane);
     }

@@ -11,8 +11,14 @@ public class Footer extends JPanel {
 
     private void createComponents() {
         setLayout(new BorderLayout());
-        add(new JLabel("Netflix statistics"), BorderLayout.WEST);
-        add(new JLabel("Informatica - 2018 - 23IVT1A1 - Chris Boer, Floris Botermans & Jan Belterman"), BorderLayout.EAST);
+        JLabel label1 = new JLabel("Netflix statistics");
+        JLabel label2 = new JLabel("Informatica - 2018 - 23IVT1A1 - Chris Boer, Floris Botermans & Jan Belterman");
+
+        label1.setFont(new Font("Verdana", Font.BOLD, 14));
+        label2.setFont(new Font("Verdana", Font.BOLD, 14));
+
+        add(label1, BorderLayout.WEST);
+        add(label2, BorderLayout.EAST);
     }
 
 }

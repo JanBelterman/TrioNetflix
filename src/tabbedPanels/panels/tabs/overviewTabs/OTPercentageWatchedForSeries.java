@@ -82,12 +82,14 @@ public class OTPercentageWatchedForSeries extends JPanel implements OverviewTab 
     @Override
     public void handleActionEvent() {
         String selectedSeries = getComboBox().getSelectedItem().toString();
-        String SQL = "SELECT AVG(PercentageWatched) AS AveragePercentageWatched, Content.ContentNr, MAX(Content.Title) AS Title\n";
-        SQL += "FROM Stream\n";
-        SQL += "RIGHT JOIN Content ON Content.ContentNr = Stream.ContentNr\n";
-        SQL += "GROUP BY Content.ContentNr\n";
-        SQL += "HAVING MAX(Content.Series) = '" + selectedSeries + "'";
-        ArrayList<HashMap<String, Object>> resultList = getDatabase().getResultsOfQuery(SQL);
+        String sql = "SELECT AVG(PercentageWatched) AS AveragePercentageWatched, Content.ContentNr, MAX(Content.Title) AS Title\n";
+        sql += "FROM Stream\n";
+        sql += "RIGHT JOIN Content ON Content.ContentNr = Stream.ContentNr\n";
+        sql += "GROUP BY Content.ContentNr\n";
+        sql += "HAVING MAX(Content.Series) = '" + selectedSeries + "'";
+
+        ArrayList<HashMap<String, Object>> resultList = getDatabase().getResultsOfQuery(sql);
+
         if (resultList.size() == 0) {
             putError("There are no results for this series");
             updateTable(new ArrayList<HashMap<String, Object>>());

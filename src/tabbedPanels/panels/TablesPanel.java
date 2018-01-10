@@ -34,7 +34,7 @@ public class TablesPanel extends JPanel {
             remove(label);
         }
         label = new JLabel(tableName, SwingConstants.CENTER);
-        label.setFont(new Font("Verdana", Font.BOLD, 15));
+        label.setFont(new Font("Verdana", Font.BOLD, 20));
         add(label, BorderLayout.BEFORE_FIRST_LINE);
 
         if (scrollPane != null) {
