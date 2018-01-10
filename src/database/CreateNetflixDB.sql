@@ -1,3 +1,5 @@
+-- Use this query in Microsoft SQL Database Manager.
+
 USE master;
 
 DROP DATABASE IF EXISTS Netflix;
