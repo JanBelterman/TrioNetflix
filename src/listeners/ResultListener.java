@@ -36,7 +36,7 @@ public class ResultListener implements ActionListener {
             this.overviewMenu.getOtPercentageWatchedForSeriesAndAccount().updateTable(new ArrayList<HashMap<String, Object>>());
         } else {
             this.overviewMenu.getOtPercentageWatchedForSeriesAndAccount().updateTable(resultList);
-            this.overviewMenu.getOtPercentageWatchedForSeriesAndAccount().putError("");
+            this.overviewMenu.getOtPercentageWatchedForSeriesAndAccount().deleteError();
         }
 
     }

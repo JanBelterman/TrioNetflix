@@ -68,6 +68,11 @@ public class OTMovieWatchedByAccount extends JPanel implements OverviewTab {
         updatePanel();
     }
 
+    public void deleteError() {
+        this.errorLabel.setText("");
+        updatePanel();
+    }
+
     @Override
     public void handleActionEvent() {
         String account = buttonComboBoxMenu.getComboBoxValue();
@@ -86,7 +91,7 @@ public class OTMovieWatchedByAccount extends JPanel implements OverviewTab {
             updateTable(new ArrayList<HashMap<String, Object>>());
         } else {
             updateTable(resultList);
-            putError("");
+            deleteError();
         }
 
     }
