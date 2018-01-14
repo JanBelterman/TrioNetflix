@@ -19,6 +19,7 @@ public class InsertListener implements ActionListener {
         ArrayList<Object> newValues = new ArrayList<>();
         for (JTextField t : this.insertTab.getTextFields()) {
             newValues.add(t.getText());
+            t.setText("");
         }
         this.insertTab.getDatabase().insertRecord(newValues, insertTab.getTableName());
     }
