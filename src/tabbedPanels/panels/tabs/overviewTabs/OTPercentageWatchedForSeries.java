@@ -61,7 +61,7 @@ public class OTPercentageWatchedForSeries extends JPanel implements OverviewTab 
         if (scrollPane != null) { remove(scrollPane); }
 
         ArrayList<String> columnNames = new ArrayList<>();
-        columnNames.add("AveragePercentageWatched");
+        columnNames.add("Average % Watched");
         columnNames.add("ContentNr");
         columnNames.add("Title");
 
@@ -95,12 +95,17 @@ public class OTPercentageWatchedForSeries extends JPanel implements OverviewTab 
             updateTable(new ArrayList<HashMap<String, Object>>());
         } else {
             updateTable(resultList);
-            putError("");
+            deleteError();
         }
     }
 
     public void putError(String errorText) {
-        this.errorLabel.setText(errorText);
+        errorLabel.setText(errorText);
+        updatePanel();
+    }
+
+    public void deleteError() {
+        errorLabel.setText("");
         updatePanel();
     }
 

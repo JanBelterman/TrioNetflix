@@ -19,6 +19,7 @@ public class UpdateListener implements ActionListener {
         ArrayList<Object> newValues = new ArrayList<>();
         for (JTextField t : updateTab.getTextFields()) {
             newValues.add(t.getText());
+            t.setText("");
         }
         updateTab.getDatabase().updateRecord(updateTab.getTableName(), newValues, originalKey);
         updateTab.updateComboBox();

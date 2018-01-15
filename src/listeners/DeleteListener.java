@@ -2,6 +2,7 @@ package listeners;
 
 import tabbedPanels.panels.tabs.UpdateTab;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +17,9 @@ public class DeleteListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         updateTab.getDatabase().deleteRecord(updateTab.getTableName(), updateTab.getComboBoxValue());
         updateTab.updateComboBox();
+        for (JTextField t : updateTab.getTextFields()) {
+            t.setText("");
+        }
     }
 
 }

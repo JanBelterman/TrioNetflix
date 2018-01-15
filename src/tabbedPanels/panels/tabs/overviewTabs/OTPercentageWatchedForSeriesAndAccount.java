@@ -71,7 +71,12 @@ public class OTPercentageWatchedForSeriesAndAccount extends JPanel {
     }
 
     public void putError(String errorText) {
-        this.errorLabel.setText(errorText);
+        errorLabel.setText(errorText);
+        updatePanel();
+    }
+
+    public void deleteError() {
+        errorLabel.setText("");
         updatePanel();
     }
 

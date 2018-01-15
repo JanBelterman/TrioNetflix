@@ -24,7 +24,7 @@ public class UserInterface implements Runnable {
     @Override
     public void run() {
         tabbedFrame = new TabbedFrame(); // Create a new TabbedFrame
-        tabbedFrame.setPreferredSize(new Dimension(1400, 500)); // Set the JFrame's size
+        tabbedFrame.setPreferredSize(new Dimension(1400, 600)); // Set the JFrame's size
         tabbedFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Make the close button of the JFrame work
         tabbedFrame.setTitle("Netflix statistics"); // Set tabbedFrame's title (actually this calls the JFrame's setTitle method)
         createTabs(); // Call createTabs method
