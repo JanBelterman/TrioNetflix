@@ -23,9 +23,10 @@ public class LongestAgeListener implements ActionListener {
         int selectedAge = otLongest.getAgeFieldValue();
 
         //Building the SQL query here.
-        String sql = "SELECT Content.ContentNr, Content.Title, Content.Duration ";
-        sql += "FROM Content ";
-        sql += "WHERE Content.ContentType = 'Movie' AND Content.MinimumAge <= " + selectedAge + " ";
+        String sql = "SELECT Content.ContentNr, Content.Title, Content.Duration\n";
+        sql += "FROM Content\n";
+        sql += "WHERE Content.ContentType = 'Movie'\n";
+        sql += "AND Content.MinimumAge <= " + selectedAge + "\n";
         sql += "ORDER BY Duration DESC;";
 
         ArrayList<HashMap<String, Object>> resultList = database.getResultsOfQuery(sql);
