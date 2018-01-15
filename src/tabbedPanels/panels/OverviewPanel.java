@@ -24,6 +24,7 @@ public class OverviewPanel extends JPanel {
         tabbedPane.addTab("Percentage watched for series for account", new OTPercentageWatchedForSeriesAndAccount(this));
         tabbedPane.addTab("Movies watched by account", new OTMovieWatchedByAccount(this));
         tabbedPane.addTab("Longest film for children under certain age", new OTLongestFilmForAge(this));
+        tabbedPane.addTab("Accounts with only one profile", new OTProfileAccount(this));
 
         add(tabbedPane);
     }
