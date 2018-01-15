@@ -2,9 +2,9 @@
 ## Informatie
 
 Gemaakt door: 
-* Jan Belterman (jjabelte@avans.nl)
-* Floris Botermans (f.botermans@avans.nl)
-* Chris Boer (ckboer@avans.nl)
+* Jan Belterman (`.jjabelte@avans.nl`)
+* Floris Botermans (`.f.botermans@avans.nl1`)
+* Chris Boer (`.ckboer@avans.nl`)
 
 Klas: 23IVT1A1 
 
