@@ -15,6 +15,7 @@ public class LongestAgeListener implements ActionListener {
         this.otLongest = otLongest;
     }
 
+    //This method handles the action where it builds the sql query and updates the table in the panel with the results.
     @Override
     public void actionPerformed(ActionEvent e) {
         Database database = otLongest.getDatabase();
@@ -29,6 +30,7 @@ public class LongestAgeListener implements ActionListener {
 
         ArrayList<HashMap<String, Object>> resultList = database.getResultsOfQuery(sql);
 
+        //Error handling and updating the table with results. If there are no results an empty table is build.
         if (resultList.size() == 0) {
             this.otLongest.putError("There are no results for this series");
             this.otLongest.updateTable(new ArrayList<HashMap<String, Object>>());

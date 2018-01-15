@@ -34,6 +34,7 @@ public class OTLongestFilmForAge extends JPanel {
         createComponents();
     }
 
+    //This method initializes all objects for inside the panel
     public void createComponents() {
         setLayout(new BorderLayout());
 
@@ -66,9 +67,11 @@ public class OTLongestFilmForAge extends JPanel {
 
         add(errorLabel, BorderLayout.SOUTH);
 
+        //Add an currently empty table to the panel
         updateTable(new ArrayList<HashMap<String, Object>>());
     }
 
+    //updateTable updates the table on screen with the given ArrayList.
     public void updateTable(ArrayList<HashMap<String, Object>> resultList) {
         if (scrollPane != null) {
             remove(scrollPane);
@@ -90,13 +93,13 @@ public class OTLongestFilmForAge extends JPanel {
         scrollPane = new JScrollPane(table);
         add(scrollPane);
         updatePanel();
-
     }
 
     public int getAgeFieldValue() {
         return Integer.parseInt(ageField.getText());
     }
 
+    //The following two methods handle the errorlabel at the bottom of the panel.
     public void putError(String errorText) {
         errorLabel.setText(errorText);
         updatePanel();
