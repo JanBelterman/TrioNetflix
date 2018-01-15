@@ -96,6 +96,16 @@ SET RelatedSeries = 'Flash'
 WHERE Title = 'Arrow'
 INSERT INTO Content VALUES
 (0001, 'Jack Reacher', 134, 'Movie', null, null, 'Action', 'English', 16),
+(0002, 'Arrival', 113, 'Movie', null, null, 'Science Fiction', 'English', 13),
+(0003, 'Interstellar', 169, 'Movie', null, null, 'Science Fiction', 'English', 13),
+(0004, 'The Matrix', 136, 'Movie', null, null, 'Action', 'English', 17),
+(0005, 'The Martian', 141, 'Movie', null, null, 'Science Fiction', 'English', 13),
+(0006, 'Fight Club', 139, 'Movie', null, null, 'Drama', 'English', 17),
+(0007, 'John Wick', 101, 'Movie', null, null, 'Action', 'English', 17),
+(0008, 'The Wolf of Wall Street', 180, 'Movie', null, null, 'Comedy', 'English', 17),
+(0009, 'Django Unchained', 165, 'Movie', null, null, 'Drama', 'English', 17),
+(0010, 'Mad Max: Fury Road', 120, 'Movie', null, null, 'Action', 'English', 17),
+(0011, 'Wall-E', 98, 'Movie', null, null, 'Animation', 'English', 3),
 (0101, 'Pilot', 45, 'Episode', 'Arrow', 1, null, null, null),
 (0102, 'New Friends', 45, 'Episode', 'Arrow', 1, null, null, null);
 INSERT INTO Stream VALUES
