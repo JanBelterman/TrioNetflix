@@ -25,6 +25,7 @@ public class OverviewPanel extends JPanel {
         tabbedPane.addTab("Movies watched by account", new OTMovieWatchedByAccount(this));
         tabbedPane.addTab("Longest film for children under certain age", new OTLongestFilmForAge(this));
         tabbedPane.addTab("Accounts with only one profile", new OTProfileAccount(this));
+        tabbedPane.addTab("Fully watched movie count", new OTFullyWatchedMovies(this));
 
         add(tabbedPane);
     }

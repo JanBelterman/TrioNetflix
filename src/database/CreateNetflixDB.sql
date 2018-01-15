@@ -110,5 +110,11 @@ INSERT INTO Content VALUES
 (0102, 'New Friends', 45, 'Episode', 'Arrow', 1, null, null, null);
 INSERT INTO Stream VALUES
 ('janbeltermann@gmail.com', 'Jan', 'Movie', 0001, 100),
+('janbeltermann@gmail.com', 'Jan', 'Movie', 0005, 80),
+('janbeltermann@gmail.com', 'Jan', 'Movie', 0007, 100),
+('janbeltermann@gmail.com', 'Jan', 'Movie', 0003, 100),
+('florisbotermans@gmail.com', 'Floris', 'Movie', 0001, 100),
+('florisbotermans@gmail.com', 'Floris', 'Movie', 0005, 100),
+('florisbotermans@gmail.com', 'Floris', 'Movie', 0007, 100),
 ('janbeltermann@gmail.com', 'Jan', 'Episode', 0101, 100),
 ('janbeltermann@gmail.com', 'Jan', 'Episode', 0102, 64);
