@@ -3,7 +3,7 @@
 
 Gemaakt door: 
 * Jan Belterman (`.jjabelte@avans.nl`)
-* Floris Botermans (`.f.botermans@avans.nl1`)
+* Floris Botermans (`.f.botermans@avans.nl`)
 * Chris Boer (`.ckboer@avans.nl`)
 
 Klas: 23IVT1A1 
