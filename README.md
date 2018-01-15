@@ -13,8 +13,18 @@ Groepnummer:
 
 1. Download de laatste release [hier](https://github.com/lVlrChris/TrioNetflix/releases).
 
-2. Extract zip.
+2. Extract de zip.
 
-3. Open project in IntelliJ.
+3. Open het project in IntelliJ.
 
-4. 
+4. In (File > Project Structure > Project settings > Project) selecteer jouw java JDK 1.8.
+
+5. In Modules selecteer de src folder en markeer als Sources.
+
+6. In Libraries, klik +, Java en dan de volgende file: ..\sqljdbc_6.2\enu\mssql-jdbc-6.2.2.jre8.jar.
+
+LET OP: The volgende stap zal een database genaamd 'Netflix' overschrijven.
+
+7. Run de ..\src\database\CreateNetflixDB.sql query in Microsoft SQL Management Studio 17 om de database aan te maken.
+
+8. Build en Run het project.
